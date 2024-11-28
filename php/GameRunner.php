@@ -12,9 +12,10 @@ do {
   $rollOfTheDice = rand(0, 5) + 1;
   $aGame->roll($rollOfTheDice);
 
-  if (rand(0, 9) == 7) {
-      $notAWinner = $aGame->wrongAnswer();
+  $isAnswerCorrect = rand(0, 9) != 7;
+  if ($isAnswerCorrect) {
+    $notAWinner = $aGame->wasCorrectlyAnswered();
   } else {
-      $notAWinner = $aGame->wasCorrectlyAnswered();
+    $notAWinner = $aGame->wrongAnswer();
   }
 } while ($notAWinner);
