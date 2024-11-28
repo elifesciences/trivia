@@ -203,16 +203,20 @@ class Game
         echoln($this->players[$this->currentPlayer] . " was sent to the penalty box");
         $this->inPenaltyBox[$this->currentPlayer] = true;
 
-        $this->currentPlayer++;
-        if ($this->currentPlayer == count($this->players)) {
-            $this->currentPlayer = 0;
-        }
+        $this->advanceTurnToTheNextPlayer();
         return true;
     }
-
 
     public function didPlayerWin()
     {
         return !($this->purses[$this->currentPlayer] == 6);
+    }
+
+    private function advanceTurnToTheNextPlayer()
+    {
+        $this->currentPlayer++;
+        if ($this->currentPlayer == count($this->players)) {
+            $this->currentPlayer = 0;
+        }
     }
 }
