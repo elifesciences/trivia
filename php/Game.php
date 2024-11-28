@@ -197,14 +197,13 @@ class Game
         }
     }
 
-    public function wrongAnswer()
+    public function handleWrongAnswer()
     {
         echoln("Question was incorrectly answered");
         echoln($this->players[$this->currentPlayer] . " was sent to the penalty box");
         $this->inPenaltyBox[$this->currentPlayer] = true;
 
         $this->advanceTurnToTheNextPlayer();
-        return true;
     }
 
     public function didPlayerWin()

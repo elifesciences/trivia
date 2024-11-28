@@ -16,6 +16,7 @@ do {
   if ($isAnswerCorrect) {
     $theGameIsStillRunning = $aGame->wasCorrectlyAnswered();
   } else {
-    $theGameIsStillRunning = $aGame->wrongAnswer();
+    $aGame->handleWrongAnswer();
+    $theGameIsStillRunning = true;
   }
 } while ($theGameIsStillRunning);
