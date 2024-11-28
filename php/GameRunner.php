@@ -14,8 +14,8 @@ do {
 
   $isAnswerCorrect = rand(0, 9) != 7;
   if ($isAnswerCorrect) {
-    $notAWinner = $aGame->wasCorrectlyAnswered();
+    $theGameIsStillRunning = $aGame->wasCorrectlyAnswered();
   } else {
-    $notAWinner = $aGame->wrongAnswer();
+    $theGameIsStillRunning = $aGame->wrongAnswer();
   }
-} while ($notAWinner);
+} while ($theGameIsStillRunning);
