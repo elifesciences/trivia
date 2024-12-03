@@ -156,23 +156,14 @@ class Game
 
     public function wasCorrectlyAnswered()
     {
-        if ($this->inPenaltyBox[$this->currentPlayer]) {
-            if ($this->isGettingOutOfPenaltyBox) {
-                $this->rewardCorrectAnswer();
-                $winner = $this->didPlayerWin();
-                $this->advanceTurnToTheNextPlayer();
-
-                return $winner;
-            } else {
-                $this->advanceTurnToTheNextPlayer();
-                return true;
-            }
-        } else {
-            $this->rewardCorrectAnswer();
-            $winner = $this->didPlayerWin();
+        if ($this->inPenaltyBox[$this->currentPlayer] && !$this->isGettingOutOfPenaltyBox) {
             $this->advanceTurnToTheNextPlayer();
-            return $winner;
+            return true;
         }
+        $this->rewardCorrectAnswer();
+        $winner = $this->didPlayerWin();
+        $this->advanceTurnToTheNextPlayer();
+        return $winner;
     }
 
     public function handleWrongAnswer()
