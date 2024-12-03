@@ -156,7 +156,8 @@ class Game
 
     public function wasCorrectlyAnswered()
     {
-        if ($this->inPenaltyBox[$this->currentPlayer] && !$this->isGettingOutOfPenaltyBox) {
+        $isPlayerRemainingInPenaltyBox = $this->inPenaltyBox[$this->currentPlayer] && !$this->isGettingOutOfPenaltyBox;
+        if ($isPlayerRemainingInPenaltyBox) {
             $this->advanceTurnToTheNextPlayer();
             return true;
         }
