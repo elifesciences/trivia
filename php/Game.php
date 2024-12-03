@@ -161,7 +161,7 @@ class Game
             return true;
         }
         $this->rewardCorrectAnswer();
-        $isTheGameStillRunning= $this->didPlayerWin();
+        $isTheGameStillRunning= !$this->hasThePlayerWon();
         $this->advanceTurnToTheNextPlayer();
         return $isTheGameStillRunning;
     }
@@ -175,9 +175,9 @@ class Game
         $this->advanceTurnToTheNextPlayer();
     }
 
-    public function didPlayerWin()
+    public function hasThePlayerWon()
     {
-        return !($this->purses[$this->currentPlayer] == 6);
+        return ($this->purses[$this->currentPlayer] == 6);
     }
 
     private function advanceTurnToTheNextPlayer()
