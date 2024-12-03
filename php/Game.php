@@ -166,17 +166,11 @@ class Game
                         . " Gold Coins.");
 
                 $winner = $this->didPlayerWin();
-                $this->currentPlayer++;
-                if ($this->currentPlayer == count($this->players)) {
-                    $this->currentPlayer = 0;
-                }
+                $this->advanceTurnToTheNextPlayer();
 
                 return $winner;
             } else {
-                $this->currentPlayer++;
-                if ($this->currentPlayer == count($this->players)) {
-                    $this->currentPlayer = 0;
-                }
+                $this->advanceTurnToTheNextPlayer();
                 return true;
             }
         } else {
@@ -188,11 +182,7 @@ class Game
                     . " Gold Coins.");
 
             $winner = $this->didPlayerWin();
-            $this->currentPlayer++;
-            if ($this->currentPlayer == count($this->players)) {
-                $this->currentPlayer = 0;
-            }
-
+            $this->advanceTurnToTheNextPlayer();
             return $winner;
         }
     }
