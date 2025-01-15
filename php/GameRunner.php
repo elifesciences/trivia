@@ -8,17 +8,25 @@ $aGame->add("Chet");
 $aGame->add("Pat");
 $aGame->add("Sue");
 
-function simulatePlayerAnswering()
+abstract class PlayerAnswerStatus
 {
-  return rand(0, 9) != 7;
+  const Correct = true;
+  const Incorrect = false;
+}
+
+function simulatePlayerAnswer()
+{
+  if (rand(0, 9) != 7) {
+    return PlayerAnswerStatus::Correct;
+  }
+  return PlayerAnswerStatus::Incorrect;
 };
 
 do {
   $rollOfTheDice = rand(0, 5) + 1;
   $aGame->roll($rollOfTheDice);
 
-  $isAnswerCorrect = simulatePlayerAnswering();
-  if ($isAnswerCorrect) {
+  if (simulatePlayerAnswer() === PlayerAnswerStatus::Correct) {
     $theGameIsStillRunning = $aGame->wasCorrectlyAnswered();
   } else {
     $aGame->handleWrongAnswer();
