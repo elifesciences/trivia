@@ -22,9 +22,13 @@ function simulatePlayerAnswer()
   return PlayerAnswerStatus::Incorrect;
 };
 
+function roll6SidedDice()
+{
+    return rand(1, 6);
+}
+
 do {
-  $rollOfTheDice = rand(0, 5) + 1;
-  $aGame->roll($rollOfTheDice);
+  $aGame->roll(roll6SidedDice());
 
   if (simulatePlayerAnswer() === PlayerAnswerStatus::Correct) {
     $theGameIsStillRunning = $aGame->wasCorrectlyAnswered();
