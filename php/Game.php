@@ -67,7 +67,7 @@ class Game
         return count($this->players);
     }
 
-    public function roll($roll)
+    public function handlePlayerRoll($roll)
     {
         echoln($this->players[$this->currentPlayer] . " is the current player");
         echoln("They have rolled a " . $roll);

@@ -28,7 +28,7 @@ function roll6SidedDice()
 }
 
 do {
-  $aGame->roll(roll6SidedDice());
+  $aGame->handlePlayerRoll(roll6SidedDice());
 
   if (simulatePlayerAnswer() === PlayerAnswerStatus::Correct) {
     $theGameIsStillRunning = $aGame->wasCorrectlyAnswered();
