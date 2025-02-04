@@ -1,11 +1,13 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+include __DIR__.'/../Game.php';
 
 final class EmptyTest extends TestCase
 {
-    public function testGreetsWithName(): void
+    public function testAddingPlayers(): void
     {
-        $this->assertSame('Hello, Alice!', '');
+        $game = new Game();
+        $this->assertSame(0, $game->howManyPlayers());
     }
 }
