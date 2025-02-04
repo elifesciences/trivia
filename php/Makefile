@@ -8,7 +8,7 @@ test:
 
 .PHONY: test-fast
 test-fast: tools/vendor
-	tools/vendor/bin/phpunit
+	tools/vendor/bin/phpunit tests
 
 tools/vendor: tools/composer.json tools/composer.lock
 	cd tools; composer install
