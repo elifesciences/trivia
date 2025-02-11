@@ -1,7 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-include __DIR__.'/../Game.php';
+
+spl_autoload_register(function ($class_name) {
+    include $class_name . '.php';
+});
 
 final class EmptyTest extends TestCase
 {
