@@ -14,6 +14,9 @@ final class EmptyTest extends TestCase
     public function testAddingPlayers(array $players, int $expectedPlayerCount): void
     {
         $game = new Game();
+        foreach ($players as $player) {
+            $game->add($player);
+        }
         $this->assertSame($expectedPlayerCount, $game->howManyPlayers());
     }
 
@@ -23,6 +26,10 @@ final class EmptyTest extends TestCase
             [
                 [], // no players
                 0   // expected player count
+            ],
+            [
+                ['Alice'], // 1 player
+                1   // expected player count
             ],
         ];
     }
