@@ -8,9 +8,22 @@ spl_autoload_register(function ($class_name) {
 
 final class EmptyTest extends TestCase
 {
-    public function testAddingPlayers(): void
+    /**
+     * @dataProvider addingPlayersProvider
+     */
+    public function testAddingPlayers(array $players, int $expectedPlayerCount): void
     {
         $game = new Game();
-        $this->assertSame(0, $game->howManyPlayers());
+        $this->assertSame($expectedPlayerCount, $game->howManyPlayers());
+    }
+
+    public function addingPlayersProvider(): array
+    {
+        return [
+            [
+                [], // no players
+                0   // expected player count
+            ],
+        ];
     }
 }
