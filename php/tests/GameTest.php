@@ -6,7 +6,7 @@ spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
-final class EmptyTest extends TestCase
+final class GameTest extends TestCase
 {
     /**
      * @dataProvider addingPlayersProvider
