@@ -1,2 +1,2 @@
-/tools/vendor/
+/vendor/
 .phpunit.cache
