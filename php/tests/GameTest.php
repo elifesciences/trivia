@@ -2,10 +2,6 @@
 
 use PHPUnit\Framework\TestCase;
 
-spl_autoload_register(function ($class_name) {
-    include $class_name . '.php';
-});
-
 final class GameTest extends TestCase
 {
     /**
