@@ -12,3 +12,7 @@ test-fast: vendor
 
 vendor: composer.json composer.lock
 	cd tools; composer install
+
+.PHONY: fix
+fix: vendor
+	vendor/bin/php-cs-fixer fix tests
